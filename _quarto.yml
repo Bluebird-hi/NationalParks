@@ -1,0 +1,47 @@
+project:
+  type: website
+  output-dir: docs
+  preview:
+    port: 3333
+
+website:
+  title: "MUSA 550"
+  page-footer:
+    left: "lumx@upenn.edu"
+    right: "This page is built with ❤️ and [Quarto](https://quarto.org/)."
+
+  sidebar:
+    logo: "images/course-icon.png"
+    pinned: true
+    align: center
+    tools:
+      - icon: globe
+        href: https://bluebird-hi.github.io/luming/
+        text: "Luming Portfolio"
+      - icon: github
+        href: https://github.com/Bluebird-hi
+        text: "Luming GitHub"
+      - icon: linkedin
+        href: https://www.linkedin.com/in/luming-xu/
+        text: "Luming Linkedin"
+    style: "docked"
+    search: true
+    collapse-level: 2
+    contents:
+      - href: index.qmd
+        text: Welcome Page
+      - section: Analysis
+        contents:
+          - analysis/01.ipynb
+          - analysis/02.ipynb
+          - analysis/03.ipynb
+          
+
+format:
+  html:
+    highlight-style: solarized
+    theme: cosmo
+    css: styles.css
+    code-copy: true
+    code-overflow: wrap
+    toc: true

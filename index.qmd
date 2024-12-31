@@ -1,0 +1,26 @@
+---
+title: "MUSA 550 Final Project: Clustering Analysis of U.S National Parks"
+subtitle: "A website demonstrating my finial project of Python class"
+---
+
+## About the Project
+
+<p>How does regional tourism activity influence visitation patterns at US national parks?</p>
+<p>Are there certain patterns of these parks?</p>
+<p>My project utilise a K-means clustering analysis method to categorise U.S national parks.</p>
+<p>National Park Visitation Data and State Tourism Data are wrangled and processed to gain insights.</p>
+
+## About Me
+
+<div style="display: flex; gap: 10px; align-items: flex-start;">
+
+<img src="images/luming.jpg" alt="Luming Xu" style="width: 170px; border-radius: 10px;">
+
+<div>
+  <p>Hello everyone</span></p>
+
+  - My name is **Luming Xu**, a student in the Master of Urban Spatial Analytics program at UPenn. 
+  - You can find more information about me on my [linkedin](https://www.linkedin.com/in/luming-xu/).
+</div>
+
+</div>

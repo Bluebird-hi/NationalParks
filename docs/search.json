@@ -1,0 +1,218 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "MUSA 550 Final Project: Clustering Analysis of U.S National Parks",
+    "section": "",
+    "text": "How does regional tourism activity influence visitation patterns at US national parks?\n\n\nAre there certain patterns of these parks?\n\n\nMy project utilise a K-means clustering analysis method to categorise U.S national parks.\n\n\nNational Park Visitation Data and State Tourism Data are wrangled and processed to gain insights.",
+    "crumbs": [
+      "Welcome Page"
+    ]
+  },
+  {
+    "objectID": "index.html#about-the-project",
+    "href": "index.html#about-the-project",
+    "title": "MUSA 550 Final Project: Clustering Analysis of U.S National Parks",
+    "section": "",
+    "text": "How does regional tourism activity influence visitation patterns at US national parks?\n\n\nAre there certain patterns of these parks?\n\n\nMy project utilise a K-means clustering analysis method to categorise U.S national parks.\n\n\nNational Park Visitation Data and State Tourism Data are wrangled and processed to gain insights.",
+    "crumbs": [
+      "Welcome Page"
+    ]
+  },
+  {
+    "objectID": "index.html#about-me",
+    "href": "index.html#about-me",
+    "title": "MUSA 550 Final Project: Clustering Analysis of U.S National Parks",
+    "section": "About Me",
+    "text": "About Me\n\n\n\n\nHello everyone\n\n\nMy name is Luming Xu, a student in the Master of Urban Spatial Analytics program at UPenn.\nYou can find more information about me on my linkedin.",
+    "crumbs": [
+      "Welcome Page"
+    ]
+  },
+  {
+    "objectID": "analysis/index.html",
+    "href": "analysis/index.html",
+    "title": "Analysis",
+    "section": "",
+    "text": "Analysis\nThis section includes examples of technical analysis done using Jupyter notebooks. Each sub-section highlights different types of analyses and visualizations. In particular, it highlights that we can easily publish interactive visualizations produced with packages such as hvPlot, altair, or Folium, without losing any of the interactive features.\nOn this page, you might want to share more introductory or background information about the analyses to help guide the reader."
+  },
+  {
+    "objectID": "analysis/03.html",
+    "href": "analysis/03.html",
+    "title": "3 Clustering Analysis",
+    "section": "",
+    "text": "Building on the previous analysis of park and state-level tourism data, I use four key indicators for clustering analysis. The results identify four distinct categories of national parks across the United States. However, there are limitations, including the need for improved data visualization and the potential to incorporate additional indicators, such as park types and geographical areas, to enhance the analysis.",
+    "crumbs": [
+      "Analysis",
+      "3 Clustering Analysis"
+    ]
+  },
+  {
+    "objectID": "analysis/03.html#data-pre-processing",
+    "href": "analysis/03.html#data-pre-processing",
+    "title": "3 Clustering Analysis",
+    "section": "3.1 Data Pre-processing",
+    "text": "3.1 Data Pre-processing\nBased on previous analysis, I input the processed data and merge it with the geometry of the centroids of national parks.\n\n\n\n\n\n\n\n\n\nTotal outdoor recreation value added (thousands of dollars)\nTotal outdoor recreation employment\nTotal outdoor recreation compensation (thousands of dollars)\nAccommodation and food services value added\nAccommodation and food services employment\nAccommodation and food services compensation\nVehicle Trips\nstate_name\nstate_abbv\nRecreation Visits\nPARKNAME\nUNIT_TYPE\ngeometry\nSTATE\n\n\n\n\n0\n81495632.0\n545448.0\n38141606.0\n11538652.0\n118110.0\n6071013.0\n73650366.0\nCalifornia\nCA\n14953882\nGolden Gate\nNational Recreation Area\nPOINT (-122.68760 37.94684)\nCA\n\n\n1\n16173790.0\n145433.0\n7721857.0\n2111931.0\n30082.0\n1072286.0\n178444612.0\nNorth Carolina\nNC\n13297647\nGreat Smoky Mountains\nNational Park\nPOINT (-83.49810 35.62216)\nNC\n\n\n2\n14504598.0\n122798.0\n7349333.0\n1462897.0\n17556.0\n781365.0\n424373204.0\nNew Jersey\nNJ\n8705329\nGateway\nNational Recreation Area\nPOINT (-73.85713 40.59855)\nNJ\n\n\n3\n57803194.0\n469357.0\n28734838.0\n10766934.0\n111819.0\n5153873.0\n139466247.0\nFlorida\nFL\n8277857\nGulf Islands\nNational Seashore\nPOINT (-87.01818 30.35539)\nFL\n\n\n4\n1489475.0\n12470.0\n901538.0\n578651.0\n4798.0\n291929.0\n236241049.0\nDistrict of Columbia\nDC\n8099148\nLincoln\nNational Memorial\nPOINT (-77.05021 38.88928)\nDC",
+    "crumbs": [
+      "Analysis",
+      "3 Clustering Analysis"
+    ]
+  },
+  {
+    "objectID": "analysis/03.html#determing-the-appropriate-clusters",
+    "href": "analysis/03.html#determing-the-appropriate-clusters",
+    "title": "3 Clustering Analysis",
+    "section": "3.2 Determing the Appropriate Clusters",
+    "text": "3.2 Determing the Appropriate Clusters\nData on interstate vehicle trips provides valuable insights into where visitors are coming from, often correlating with the proximity of national parks to population centers or major transportation hubs. Clustering can help account for regional tourism dynamics by grouping parks with similar visitor flows. Additionally, state-level outdoor recreation data, particularly concerning accommodation and food services, offers a broader understanding of trends, preferences, and activity levels that influence park visitation. States with a strong outdoor recreation culture may significantly contribute to national park visitation, making this data crucial for clustering. By incorporating recreation visitation data for each national park, I use four key indicators for further clustering analysis.\nThe Elbow Method and kneed package determine the “knee” point quantitatively, indicating four as the number of clusters.\n\n\narray([[ 2.7357308 ,  2.60922961, -0.66826553,  8.42932276],\n       [-0.18186611, -0.24451187,  0.1986735 ,  7.44326458],\n       [-0.25642049, -0.44099326,  2.23318497,  4.70917628],\n       [ 1.67750921,  2.37560822, -0.12378567,  4.454676  ],\n       [-0.83774033, -0.70868014,  0.67681032,  4.34827958]])\n\n\n\n\nc:\\Users\\19397\\.conda\\envs\\musa-550-fall-2023\\lib\\site-packages\\sklearn\\cluster\\_kmeans.py:1436: UserWarning: KMeans is known to have a memory leak on Windows with MKL, when there are less chunks than available threads. You can avoid it by setting the environment variable OMP_NUM_THREADS=2.\n  warnings.warn(\nc:\\Users\\19397\\.conda\\envs\\musa-550-fall-2023\\lib\\site-packages\\sklearn\\cluster\\_kmeans.py:1436: UserWarning: KMeans is known to have a memory leak on Windows with MKL, when there are less chunks than available threads. You can avoid it by setting the environment variable OMP_NUM_THREADS=2.\n  warnings.warn(\nc:\\Users\\19397\\.conda\\envs\\musa-550-fall-2023\\lib\\site-packages\\sklearn\\cluster\\_kmeans.py:1436: UserWarning: KMeans is known to have a memory leak on Windows with MKL, when there are less chunks than available threads. You can avoid it by setting the environment variable OMP_NUM_THREADS=2.\n  warnings.warn(\nc:\\Users\\19397\\.conda\\envs\\musa-550-fall-2023\\lib\\site-packages\\sklearn\\cluster\\_kmeans.py:1436: UserWarning: KMeans is known to have a memory leak on Windows with MKL, when there are less chunks than available threads. You can avoid it by setting the environment variable OMP_NUM_THREADS=2.\n  warnings.warn(\nc:\\Users\\19397\\.conda\\envs\\musa-550-fall-2023\\lib\\site-packages\\sklearn\\cluster\\_kmeans.py:1436: UserWarning: KMeans is known to have a memory leak on Windows with MKL, when there are less chunks than available threads. You can avoid it by setting the environment variable OMP_NUM_THREADS=2.\n  warnings.warn(\nc:\\Users\\19397\\.conda\\envs\\musa-550-fall-2023\\lib\\site-packages\\sklearn\\cluster\\_kmeans.py:1436: UserWarning: KMeans is known to have a memory leak on Windows with MKL, when there are less chunks than available threads. You can avoid it by setting the environment variable OMP_NUM_THREADS=2.\n  warnings.warn(\nc:\\Users\\19397\\.conda\\envs\\musa-550-fall-2023\\lib\\site-packages\\sklearn\\cluster\\_kmeans.py:1436: UserWarning: KMeans is known to have a memory leak on Windows with MKL, when there are less chunks than available threads. You can avoid it by setting the environment variable OMP_NUM_THREADS=2.\n  warnings.warn(\nc:\\Users\\19397\\.conda\\envs\\musa-550-fall-2023\\lib\\site-packages\\sklearn\\cluster\\_kmeans.py:1436: UserWarning: KMeans is known to have a memory leak on Windows with MKL, when there are less chunks than available threads. You can avoid it by setting the environment variable OMP_NUM_THREADS=2.\n  warnings.warn(\n\n\n\n\n\n\n\n\n\n\n\nRequirement already satisfied: kneed in c:\\users\\19397\\.conda\\envs\\musa-550-fall-2023\\lib\\site-packages (0.8.3)\nRequirement already satisfied: numpy&gt;=1.14.2 in c:\\users\\19397\\.conda\\envs\\musa-550-fall-2023\\lib\\site-packages (from kneed) (1.24.4)\nRequirement already satisfied: scipy&gt;=1.0.0 in c:\\users\\19397\\.conda\\envs\\musa-550-fall-2023\\lib\\site-packages (from kneed) (1.14.1)\n4",
+    "crumbs": [
+      "Analysis",
+      "3 Clustering Analysis"
+    ]
+  },
+  {
+    "objectID": "analysis/03.html#perform-the-k-means-fit",
+    "href": "analysis/03.html#perform-the-k-means-fit",
+    "title": "3 Clustering Analysis",
+    "section": "3.3 Perform the K-Means Fit",
+    "text": "3.3 Perform the K-Means Fit\n\n\nc:\\Users\\19397\\.conda\\envs\\musa-550-fall-2023\\lib\\site-packages\\sklearn\\cluster\\_kmeans.py:1436: UserWarning: KMeans is known to have a memory leak on Windows with MKL, when there are less chunks than available threads. You can avoid it by setting the environment variable OMP_NUM_THREADS=2.\n  warnings.warn(\n\n\n\n\n\n\n\n\n\nTotal outdoor recreation value added (thousands of dollars)\nTotal outdoor recreation employment\nTotal outdoor recreation compensation (thousands of dollars)\nAccommodation and food services value added\nAccommodation and food services employment\nAccommodation and food services compensation\nVehicle Trips\nstate_name\nstate_abbv\nRecreation Visits\nPARKNAME\nUNIT_TYPE\ngeometry\nSTATE\nlabel\n\n\n\n\n0\n81495632.0\n545448.0\n38141606.0\n11538652.0\n118110.0\n6071013.0\n73650366.0\nCalifornia\nCA\n14953882\nGolden Gate\nNational Recreation Area\nPOINT (-122.68760 37.94684)\nCA\n3\n\n\n1\n16173790.0\n145433.0\n7721857.0\n2111931.0\n30082.0\n1072286.0\n178444612.0\nNorth Carolina\nNC\n13297647\nGreat Smoky Mountains\nNational Park\nPOINT (-83.49810 35.62216)\nNC\n3\n\n\n2\n14504598.0\n122798.0\n7349333.0\n1462897.0\n17556.0\n781365.0\n424373204.0\nNew Jersey\nNJ\n8705329\nGateway\nNational Recreation Area\nPOINT (-73.85713 40.59855)\nNJ\n3\n\n\n3\n57803194.0\n469357.0\n28734838.0\n10766934.0\n111819.0\n5153873.0\n139466247.0\nFlorida\nFL\n8277857\nGulf Islands\nNational Seashore\nPOINT (-87.01818 30.35539)\nFL\n3\n\n\n4\n1489475.0\n12470.0\n901538.0\n578651.0\n4798.0\n291929.0\n236241049.0\nDistrict of Columbia\nDC\n8099148\nLincoln\nNational Memorial\nPOINT (-77.05021 38.88928)\nDC\n3",
+    "crumbs": [
+      "Analysis",
+      "3 Clustering Analysis"
+    ]
+  },
+  {
+    "objectID": "analysis/03.html#calculate-average-features-per-cluster",
+    "href": "analysis/03.html#calculate-average-features-per-cluster",
+    "title": "3 Clustering Analysis",
+    "section": "3.4 Calculate Average Features per Cluster",
+    "text": "3.4 Calculate Average Features per Cluster\n\n\n\n\n\n\n\n\n\nlabel\nsize\n\n\n\n\n0\n0\n47\n\n\n1\n1\n163\n\n\n2\n2\n106\n\n\n3\n3\n16\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlabel\nTotal outdoor recreation value added (thousands of dollars)\nAccommodation and food services value added\nVehicle Trips\nRecreation Visits\n\n\n\n\n1\n1\n8.444411e+06\n1.234140e+06\n7.365371e+07\n3.818086e+05\n\n\n2\n2\n1.712150e+07\n2.608128e+06\n3.025375e+08\n5.782773e+05\n\n\n0\n0\n6.935583e+07\n9.527813e+06\n1.063060e+08\n7.368459e+05\n\n\n3\n3\n1.690561e+07\n2.742586e+06\n1.374757e+08\n6.622410e+06",
+    "crumbs": [
+      "Analysis",
+      "3 Clustering Analysis"
+    ]
+  },
+  {
+    "objectID": "analysis/03.html#coloring-national-parks-by-their-cluster-label",
+    "href": "analysis/03.html#coloring-national-parks-by-their-cluster-label",
+    "title": "3 Clustering Analysis",
+    "section": "3.5 Coloring National Parks by their Cluster Label",
+    "text": "3.5 Coloring National Parks by their Cluster Label\nFour clusters of national parks are showed on the map. However, there are still limitations, including the need for improved data visualization and the potential to incorporate additional indicators, such as park types and geographical areas, to enhance the analysis.\n\n\n\n\n\n\n\n\n\nTotal outdoor recreation value added (thousands of dollars)\nTotal outdoor recreation employment\nTotal outdoor recreation compensation (thousands of dollars)\nAccommodation and food services value added\nAccommodation and food services employment\nAccommodation and food services compensation\nVehicle Trips\nstate_name\nstate_abbv\nRecreation Visits\nPARKNAME\nUNIT_TYPE\ngeometry\nSTATE\nlabel\n\n\n\n\n0\n81495632.0\n545448.0\n38141606.0\n11538652.0\n118110.0\n6071013.0\n73650366.0\nCalifornia\nCA\n14953882\nGolden Gate\nNational Recreation Area\nPOINT (-1962854.536 -513963.852)\nCA\n3\n\n\n1\n16173790.0\n145433.0\n7721857.0\n2111931.0\n30082.0\n1072286.0\n178444612.0\nNorth Carolina\nNC\n13297647\nGreat Smoky Mountains\nNational Park\nPOINT (1484845.295 -895614.898)\nNC\n3\n\n\n2\n14504598.0\n122798.0\n7349333.0\n1462897.0\n17556.0\n781365.0\n424373204.0\nNew Jersey\nNJ\n8705329\nGateway\nNational Recreation Area\nPOINT (2162945.286 -141062.262)\nNJ\n3\n\n\n3\n57803194.0\n469357.0\n28734838.0\n10766934.0\n111819.0\n5153873.0\n139466247.0\nFlorida\nFL\n8277857\nGulf Islands\nNational Seashore\nPOINT (1250105.164 -1529879.132)\nFL\n3\n\n\n4\n1489475.0\n12470.0\n901538.0\n578651.0\n4798.0\n291929.0\n236241049.0\nDistrict of Columbia\nDC\n8099148\nLincoln\nNational Memorial\nPOINT (1957863.380 -405668.953)\nDC\n3",
+    "crumbs": [
+      "Analysis",
+      "3 Clustering Analysis"
+    ]
+  },
+  {
+    "objectID": "analysis/01.html",
+    "href": "analysis/01.html",
+    "title": "1 Mapping National Park Service Lands",
+    "section": "",
+    "text": "The United States has 63 national parks, which are congressionally designated protected areas operated by the National Park Service (NPS), an agency of the Department of the Interior. The NPS provides accurate and up-to-date geospatial data for my analysis of US national parks. In this section, I delve into national park visitation data to have an overview of my research subject.",
+    "crumbs": [
+      "Analysis",
+      "1 Mapping National Park Service Lands"
+    ]
+  },
+  {
+    "objectID": "analysis/01.html#data-wrangling",
+    "href": "analysis/01.html#data-wrangling",
+    "title": "1 Mapping National Park Service Lands",
+    "section": "1.1 Data Wrangling",
+    "text": "1.1 Data Wrangling\nAfter exploring the NPS datasets, I wrangled the boundaries, centroids, and recreation visitors of national parks.\nVisitation by state and by park report documents the number of recreation visitors and visitor days for all NPS units that reported public use data in Calendar Year 2023 and displays the percent change from the previous year.\n\n\n\n\n\n\n\n\n\nState\nPark\nRecreation Visitors\nPercent Change\n\n\n\n\n0\nAlabama\nHorseshoe Bend NMP\n72725\n0.0731\n\n\n1\nAlabama\nLittle River Canyon NPRES\n700638\n-0.0353\n\n\n2\nAlabama\nNatchez Trace PKWY\n474939\n0.0369\n\n\n3\nAlabama\nRussell Cave NM\n8678\n-0.4892\n\n\n4\nAlabama\nTuskegee Airmen NHS\n22082\n0.3684\n\n\n\n\n\n\n\nAnnual park ranking report for recreation visits records the number of recreation visitors and the rankings of each national park in Calendar Year 2023 and provides the percentage of total of this year.\n\n\n\n\n\n\n\n\n\nRank\nRecreation Visits\n% of Total\nPark\n\n\n\n\n0\n1\n16757635\n0.051483\nBlue Ridge PKWY\n\n\n1\n2\n14953882\n0.045941\nGolden Gate NRA\n\n\n2\n3\n13297647\n0.040853\nGreat Smoky Mountains NP\n\n\n3\n4\n8705329\n0.026745\nGateway NRA\n\n\n4\n5\n8277857\n0.025431\nGulf Islands NS\n\n\n\n\n\n\n\nPark centroids and boundaries depicts National Park Service tract and boundary data that was created by the Land Resources Division. The dataframe displays the types, regions, names, and states of the parks.\n\n\n\n\n\n\n\n\n\nOBJECTID\nCreationDate\nCreator\nEditDate\nEditor\nGlobalID\nAreaID\nUNIT_CODE\nUNIT_NAME\nDATE_EDIT\nSTATE\nREGION\nGNIS_ID\nUNIT_TYPE\nCREATED_BY\nPARKNAME\ngeometry\n\n\n\n\n0\n1\nWed, 02 Oct 2024 09:10:01 GMT\nNPS_WASO_LANDS\nWed, 02 Oct 2024 09:10:01 GMT\nNPS_WASO_LANDS\n7085a596-1e1a-49c6-8469-d52591de216b\n50\nBICA\nBighorn Canyon National Recreation Area\nFri, 06 Sep 2024 00:00:00 GMT\nMT\nIM\n767934\nNational Recreation Area\nLands\nBighorn Canyon\nPOINT (-108.23474 45.10364)\n\n\n1\n2\nWed, 02 Oct 2024 09:10:01 GMT\nNPS_WASO_LANDS\nWed, 02 Oct 2024 09:10:01 GMT\nNPS_WASO_LANDS\n55aee914-d70a-4850-82db-b16f77a1cd7b\n338\nHALE\nHaleakala National Park\nWed, 18 Sep 2024 00:00:00 GMT\nHI\nPW\n358382\nNational Park\nLands\nHaleakala\nPOINT (-156.13255 20.69943)\n\n\n2\n3\nWed, 02 Oct 2024 09:10:01 GMT\nNPS_WASO_LANDS\nWed, 02 Oct 2024 09:10:01 GMT\nNPS_WASO_LANDS\n0eebbcef-d2db-40fa-be02-39ce8f051b09\n272\nHOCU\nHopewell Culture National Historical Park\nWed, 18 Sep 2024 00:00:00 GMT\nOH\nMW\n1888931\nNational Historical Park\nLands\nHopewell Culture\nPOINT (-83.13505 39.27882)\n\n\n3\n4\nWed, 02 Oct 2024 09:10:01 GMT\nNPS_WASO_LANDS\nWed, 02 Oct 2024 09:10:01 GMT\nNPS_WASO_LANDS\n1b3159fe-ca37-46fe-a52c-fbb01c387643\n258\nINDU\nIndiana Dunes National Park\nThu, 12 Sep 2024 00:00:00 GMT\nIN\nMW\n446903\nNational Park\nLands\nIndiana Dunes\nPOINT (-87.03288 41.65959)\n\n\n4\n5\nWed, 02 Oct 2024 09:10:01 GMT\nNPS_WASO_LANDS\nWed, 02 Oct 2024 09:10:01 GMT\nNPS_WASO_LANDS\n88ec79de-8983-4657-a58a-1d1b867ed88a\n266\nJEFF\nGateway Arch National Park\nWed, 18 Sep 2024 00:00:00 GMT\nIL\nMW\n765817\nNational Park\nLands\nGateway Arch\nPOINT (-90.17541 38.62346)\n\n\n\n\n\n\n\nThe boundary of U.S states is also acquired from the Cartographic Boundary Files of United States Census Bureau.\n\n\n\n\n\n\n\n\n\nSTATEFP\nSTATENS\nGEOIDFQ\nGEOID\nSTUSPS\nNAME\nLSAD\nALAND\nAWATER\ngeometry\n\n\n\n\n0\n35\n00897535\n0400000US35\n35\nNM\nNew Mexico\n00\n314198587197\n726463919\nPOLYGON ((-862284.832 -1454476.300, -862055.89...\n\n\n1\n72\n01779808\n0400000US72\n72\nPR\nPuerto Rico\n00\n8869031577\n4922247037\nMULTIPOLYGON (((3650564.378 -2228256.031, 3651...\n\n\n2\n48\n01779801\n0400000US48\n48\nTX\nTexas\n00\n676686238592\n18982083586\nPOLYGON ((-630703.394 -1429224.113, -630219.81...\n\n\n3\n21\n01779786\n0400000US21\n21\nKY\nKentucky\n00\n102266598312\n2384223544\nMULTIPOLYGON (((946128.073 -881437.420, 946563...\n\n\n4\n39\n01085497\n0400000US39\n39\nOH\nOhio\n00\n105823831336\n10274524796\nMULTIPOLYGON (((1423192.458 -226998.937, 14238...",
+    "crumbs": [
+      "Analysis",
+      "1 Mapping National Park Service Lands"
+    ]
+  },
+  {
+    "objectID": "analysis/01.html#data-pre-processing",
+    "href": "analysis/01.html#data-pre-processing",
+    "title": "1 Mapping National Park Service Lands",
+    "section": "1.2 Data Pre-processing",
+    "text": "1.2 Data Pre-processing\nVisitation data and centroids of the national parks are merged for further geospatial analysis.\n\n\n\n\n\n\n\n\n\nRank\nRecreation Visits\n% of Total\nPark\nPARKNAME\nUNIT_CODE\nUNIT_TYPE\ngeometry\nSTATE\n\n\n\n\n0\n2\n14953882\n0.045941\nGolden Gate NRA\nGolden Gate\nNRA\nNational Recreation Area\nPOINT (-122.68760 37.94684)\nCA\n\n\n1\n3\n13297647\n0.040853\nGreat Smoky Mountains NP\nGreat Smoky Mountains\nNP\nNational Park\nPOINT (-83.49810 35.62216)\nNC\n\n\n2\n4\n8705329\n0.026745\nGateway NRA\nGateway\nNRA\nNational Recreation Area\nPOINT (-73.85713 40.59855)\nNJ\n\n\n3\n5\n8277857\n0.025431\nGulf Islands NS\nGulf Islands\nNS\nNational Seashore\nPOINT (-87.01818 30.35539)\nFL\n\n\n4\n6\n8099148\n0.024882\nLincoln Memorial\nLincoln\nMemorial\nNational Memorial\nPOINT (-77.05021 38.88928)\nDC",
+    "crumbs": [
+      "Analysis",
+      "1 Mapping National Park Service Lands"
+    ]
+  },
+  {
+    "objectID": "analysis/01.html#distribution-of-national-park-service-lands",
+    "href": "analysis/01.html#distribution-of-national-park-service-lands",
+    "title": "1 Mapping National Park Service Lands",
+    "section": "1.3 Distribution of National Park Service Lands",
+    "text": "1.3 Distribution of National Park Service Lands\nThe national park service lands includes national parks, monuments, historic sites, recreation areas, seashores, and other federally designated areas. NPS lands are distributed across all 50 states, the District of Columbia, and U.S. territories such as Puerto Rico, Guam, and the Virgin Islands. Western states, like California, Alaska, and Utah, often host the largest expanses of NPS land due to their size and natural diversity. Eastern states tend to feature smaller, historically focused NPS sites. States with vast wilderness areas, such as Alaska, have a significant share of NPS lands. Smaller or more urbanized states often have fewer or smaller NPS sites but may house historically critical or highly visited landmarks.",
+    "crumbs": [
+      "Analysis",
+      "1 Mapping National Park Service Lands"
+    ]
+  },
+  {
+    "objectID": "analysis/01.html#most-visited-national-park-service-lands",
+    "href": "analysis/01.html#most-visited-national-park-service-lands",
+    "title": "1 Mapping National Park Service Lands",
+    "section": "1.4 Most Visited National Park Service Lands",
+    "text": "1.4 Most Visited National Park Service Lands\nThe image features two side-by-side bar charts illustrating recreation visits to national parks. The left chart presents a state-level summary, highlighting California as the leader with 36.16 million visitors, followed by the District of Columbia and Arizona. Other notable states include North Carolina, Florida, and New Jersey. The right chart focuses on individual national parks, with Golden Gate National Park topping the list at 14.95 million visitors, followed by Great Smoky Mountains and Gateway National Park. Parks such as the Grand Canyon and Vietnam Veterans Memorial also rank among the top 10.\n\n\n\n\n\n\n\n\nThe top 10 national parks by recreation visits highlight some of the most popular destinations across the United States. California (CA) leads with 36.16 million visitors, which is also home to Golden Gate National Recreation Area. District of Columbia (DC) hosts two highly visited landmarks, which are the Lincoln Memorial and Vietnam Veterans Memorial. Arizona (AZ) contributes significantly with parks like the Grand Canyon, Lake Mead, and Glen Canyon. North Carolina (NC) and New Jersey (NJ) add diversity with parks such as Great Smoky Mountains and Gateway. Florida (FL) and Alabama (AL) feature prominently due to Gulf Islands and Natchez Trace.\n\n\n\n\n\n\n\n\n\nPARKNAME\nRecreation Visits\ngeometry\nSTATE\n\n\n\n\n0\nGolden Gate\n14953882\nPOINT (-1962854.536 -513963.852)\nCA\n\n\n1\nGreat Smoky Mountains\n13297647\nPOINT (1484845.295 -895614.898)\nNC\n\n\n2\nGateway\n8705329\nPOINT (2162945.286 -141062.262)\nNJ\n\n\n3\nGulf Islands\n8277857\nPOINT (1250105.164 -1529879.132)\nFL\n\n\n4\nLincoln\n8099148\nPOINT (1957863.380 -405668.953)\nDC\n\n\n5\nNatchez Trace\n6784853\nPOINT (968704.634 -1287486.964)\nAL\n\n\n6\nLake Mead\n5798541\nPOINT (-1285654.803 -862324.981)\nAZ\n\n\n7\nGlen Canyon\n5206934\nPOINT (-953063.678 -783083.162)\nAZ\n\n\n8\nVietnam Veterans\n5039454\nPOINT (1958024.802 -405430.786)\nDC\n\n\n9\nGrand Canyon\n4733705\nPOINT (-1100430.919 -884718.804)\nAZ\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n\n\n\n\nNote: For better visualization, Alaska and Hawaii are placed at the bottom of the United States.",
+    "crumbs": [
+      "Analysis",
+      "1 Mapping National Park Service Lands"
+    ]
+  },
+  {
+    "objectID": "analysis/02.html",
+    "href": "analysis/02.html",
+    "title": "2 Mapping State Tourism Data",
+    "section": "",
+    "text": "State Tourism Data, such as interstate passenger trips and outdoor recreation of the states, is essential for clustering analysis of national parks by recreation visits because it provides critical contextual and explanatory variables that enhance the understanding of park visitation patterns. In this section, I processed the state-level tourism data to gain more insights.",
+    "crumbs": [
+      "Analysis",
+      "2 Mapping State Tourism Data"
+    ]
+  },
+  {
+    "objectID": "analysis/02.html#data-wrangling",
+    "href": "analysis/02.html#data-wrangling",
+    "title": "2 Mapping State Tourism Data",
+    "section": "2.1 Data Wrangling",
+    "text": "2.1 Data Wrangling\nThe Outdoor Recreation Satellite Account is released by the U.S. Bureau of Economic Analysis. It provides a comprehensive overview of the outdoor recreation economy, including their impact on value added, gross output, employment, and compensation. The outdoor recreation by industry data highlights the contributions of various sectors to the economy. In 2023, the arts, entertainment, recreation, accommodation, and food services industry group was the largest contributor to U.S. outdoor recreation current-dollar value added. As a result, both the total outdoor recreation data and the accommodation and food services industry data are carefully analyzed and processed.\n\n\n\n\n\n\n\n\n\nStates\nTotal outdoor recreation value added (thousands of dollars)\nTotal outdoor recreation employment\nTotal outdoor recreation compensation (thousands of dollars)\nAccommodation and food services value added\nAccommodation and food services employment\nAccommodation and food services compensation\n\n\n\n\n0\nAlabama\n6589810\n65409\n2963564\n872220\n13335\n428590\n\n\n1\nAlaska\n3140446\n21242\n1546654\n484165\n5672\n266655\n\n\n2\nArizona\n14082598\n110794\n6677548\n2497418\n28473\n1268011\n\n\n3\nArkansas\n4503775\n40987\n2010246\n616951\n9538\n286275\n\n\n4\nCalifornia\n81495632\n545448\n38141606\n11538652\n118110\n6071013\n\n\n\n\n\n\n\nThe Interstate Passenger Trips by Destination data, obtained from the Bureau of Transportation Statistics, provides valuable insights into visitation patterns and modes of transportation to national parks. Specifically, the data on interstate personal vehicle trips originating from all states is carefully processed and analyzed to better understand visitation trends.\n\n\n\n\n\n\n\n\n\nDestination\nVehicle Trips\n\n\n\n\n0\nAlabama\n136077142\n\n\n1\nAlaska\n0\n\n\n2\nArizona\n51537440\n\n\n3\nArkansas\n86271723\n\n\n4\nCalifornia\n73650366\n\n\n\n\n\n\n\nFor better visualization, Alaska and Hawaii are placed at the bottom of the United States. The states data is pre-processed in R using the urbnmapr package.",
+    "crumbs": [
+      "Analysis",
+      "2 Mapping State Tourism Data"
+    ]
+  },
+  {
+    "objectID": "analysis/02.html#data-pre-processing",
+    "href": "analysis/02.html#data-pre-processing",
+    "title": "2 Mapping State Tourism Data",
+    "section": "2.2 Data Pre-processing",
+    "text": "2.2 Data Pre-processing\nState tourism data is merged with the geometry of states for further geospatial analysis.\n\n\n\n\n\n\n\n\n\nDestination\ntourism_data\nvalues\ngeometry\nstate_name\nstate_abbv\n\n\n\n\n0\nAlabama\nTotal outdoor recreation value added (thousand...\n6589810\nMULTIPOLYGON (((1150023.442 -1526367.945, 1150...\nAlabama\nAL\n\n\n1\nAlabama\nTotal outdoor recreation employment\n65409\nMULTIPOLYGON (((1150023.442 -1526367.945, 1150...\nAlabama\nAL\n\n\n2\nAlabama\nTotal outdoor recreation compensation (thousan...\n2963564\nMULTIPOLYGON (((1150023.442 -1526367.945, 1150...\nAlabama\nAL\n\n\n3\nAlabama\nAccommodation and food services value added\n872220\nMULTIPOLYGON (((1150023.442 -1526367.945, 1150...\nAlabama\nAL\n\n\n4\nAlabama\nAccommodation and food services employment\n13335\nMULTIPOLYGON (((1150023.442 -1526367.945, 1150...\nAlabama\nAL",
+    "crumbs": [
+      "Analysis",
+      "2 Mapping State Tourism Data"
+    ]
+  },
+  {
+    "objectID": "analysis/02.html#tourism-data-by-state",
+    "href": "analysis/02.html#tourism-data-by-state",
+    "title": "2 Mapping State Tourism Data",
+    "section": "2.3 Tourism Data by State",
+    "text": "2.3 Tourism Data by State\nAccording to the choropleth maps of each indicator,the Total Outdoor Recreation Value Added, Accommodation and Food Services Value Added, and Vehicle Trips of the states highlight distinct patterns that are ideal for clustering analysis. These differences suggest that these factors can provide meaningful insights when grouping states for further analysis.\nTotal Outdoor Recreation Value Added: This visualization shows outdoor recreation value added (in thousands of dollars), with values ranging from 0 to 80 million. California and Texas stand out with the darkest blue shades, suggesting they lead in outdoor recreation value added. Florida also shows a dark blue color, while most other states display much lighter shades, indicating lower outdoor recreation economic impact.\nAccommodation and Food Services Value Added: This map displays a different pattern, with values ranging from 0 to 10 million. The most striking feature is the dark blue coloring in California and Florida, along with a moderately dark shade in Texas. These three states appear to generate the highest value added from accommodation and food services. Most other states show much lighter shades, indicating lower values in this category.\nVehicle Trips: This map shows tourism-related vehicle trips across US states, with values ranging from 0 to 400 million. The darkest blue coloring appears in the northeastern states, particularly New York, indicating this region has the highest number of vehicle trips. There’s a gradual decrease in intensity moving westward, with most western states showing lighter blue shades, suggesting lower vehicle trip numbers.\nVehicle trips are concentrated in the Northeast, while accommodation services and outdoor recreation value are highest in California, Texas, and Florida. The distribution of vehicle trips shows a more gradual east-to-west gradient, whereas the other two indicators display more concentrated “hotspots” in specific states, emphasizing regional variations in outdoor recreation trends.",
+    "crumbs": [
+      "Analysis",
+      "2 Mapping State Tourism Data"
+    ]
+  },
+  {
+    "objectID": "FinalProposal.html",
+    "href": "FinalProposal.html",
+    "title": "#Final Proposal",
+    "section": "",
+    "text": "Hi Eric! I’m thinking of analysing tourism data of US national parks but I’m not sure whether my research question and analysis steps are appropriate. I’d like to cluster national parks by their own and regional visitation patterns. Could you please kindly provide some suggestions? Thank you!\n\n\nHow does regional tourism activity influence visitation patterns at US national parks? ### Data 1. National Park Visitation Data + Source: National Park Service (NPS) + Data: park centroids and boundaries, Visitation By State and by Park, Annual Park Ranking for Recreation Visits 2. State Tourism Data + U.S. Bureau of Economic Analysis + Data: Outdoor Recreation Satellite Account + STR + Data: hotel occupancy + Bureau of Transportation Statistics + Data: Interstate Passenger Trips by Destination, Freight Flows By State ### Analysis Steps 1. Preprocessing\nmatch park locations with US States\n\nCorrelation Analysis\n\nexplore relationships between park visitation and tourism metrics\n\nClustering Analysis ### Requirements Satisfied\n\n\nIt combines data collected from 3 or more different sources\nYou use scikit-learn to perform a clustering analysis\nThe project includes multiple interactive visualizations that include a significant interactive component (cross-filtering, interactive widgets, etc)"
+  },
+  {
+    "objectID": "FinalProposal.html#luming-xu-2024-12-09",
+    "href": "FinalProposal.html#luming-xu-2024-12-09",
+    "title": "#Final Proposal",
+    "section": "",
+    "text": "Hi Eric! I’m thinking of analysing tourism data of US national parks but I’m not sure whether my research question and analysis steps are appropriate. I’d like to cluster national parks by their own and regional visitation patterns. Could you please kindly provide some suggestions? Thank you!\n\n\nHow does regional tourism activity influence visitation patterns at US national parks? ### Data 1. National Park Visitation Data + Source: National Park Service (NPS) + Data: park centroids and boundaries, Visitation By State and by Park, Annual Park Ranking for Recreation Visits 2. State Tourism Data + U.S. Bureau of Economic Analysis + Data: Outdoor Recreation Satellite Account + STR + Data: hotel occupancy + Bureau of Transportation Statistics + Data: Interstate Passenger Trips by Destination, Freight Flows By State ### Analysis Steps 1. Preprocessing\nmatch park locations with US States\n\nCorrelation Analysis\n\nexplore relationships between park visitation and tourism metrics\n\nClustering Analysis ### Requirements Satisfied\n\n\nIt combines data collected from 3 or more different sources\nYou use scikit-learn to perform a clustering analysis\nThe project includes multiple interactive visualizations that include a significant interactive component (cross-filtering, interactive widgets, etc)"
+  }
+]
