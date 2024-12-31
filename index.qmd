@@ -1,6 +1,6 @@
 ---
-title: "MUSA 550 Final Project: Clustering Analysis of U.S National Parks"
-subtitle: "A website demonstrating my finial project of Python class"
+title: "Clustering Analysis of U.S National Parks"
+subtitle: "An independent project using Python and Quarto"
 ---
 
 ## About the Project
